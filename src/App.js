@@ -1,23 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Gallows } from "./components/Gallows";
+import Tab from "./components/Tab";
+import { Word } from "./components/Word";
+import { useState } from "react";
+
 
 function App() {
+
+  let hasło1 = "ABCFFF";
+
+  const [hasło, setHasło] = useState(
+    hasło1
+      .split("")
+      .map((x) => (x === " " ? " " : "-"))
+      .join("")
+  );
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Word hasło1={hasło1} hasło={hasło} setHasło={setHasło} />
+      <div className="container">
+        <Gallows />
+        <Tab hasło1={hasło1} hasło={hasło} setHasło={setHasło} />
+      </div>
     </div>
   );
 }
