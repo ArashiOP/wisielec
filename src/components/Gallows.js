@@ -1,3 +1,3 @@
-export function Gallows() {
-  return <img src="img/s0.jpg" alt="true"></img>;
+export function Gallows({ misses }) {
+  return <img src={`img/s${misses <= 9 ? misses : 9}.jpg`} alt="true"></img>;
 }

@@ -1,9 +1,9 @@
 
 
 
-export function Word({hasło, setHasło, hasło1}) {
+export function Word({displayWord, setDisplayWord, guessWord}) {
 
-  return <h1 className="Word">{hasło}</h1>;
+  return <h1 className="Word">{displayWord}</h1>;
 
 
 }

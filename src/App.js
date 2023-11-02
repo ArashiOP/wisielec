@@ -4,13 +4,13 @@ import Tab from "./components/Tab";
 import { Word } from "./components/Word";
 import { useState } from "react";
 
-
 function App() {
+  let guessWord = "ALFABET";
 
-  let hasło1 = "ABCFFF";
+  const [misses, setMisses] = useState(0);
 
-  const [hasło, setHasło] = useState(
-    hasło1
+  const [displayWord, setDisplayWord] = useState(
+    guessWord
       .split("")
       .map((x) => (x === " " ? " " : "-"))
       .join("")
@@ -18,10 +18,20 @@ function App() {
 
   return (
     <div className="App">
-      <Word hasło1={hasło1} hasło={hasło} setHasło={setHasło} />
+      <Word
+        guessWord={guessWord}
+        displayWord={displayWord}
+        setDisplayWord={setDisplayWord}
+      />
       <div className="container">
-        <Gallows />
-        <Tab hasło1={hasło1} hasło={hasło} setHasło={setHasło} />
+        <Gallows misses={misses} />
+        <Tab
+          guessWord={guessWord}
+          displayWord={displayWord}
+          setDisplayWord={setDisplayWord}
+          misses={misses}
+          setMisses={setMisses}
+        />
       </div>
     </div>
   );
