@@ -5,7 +5,7 @@ import { Word } from "./components/Word";
 import { useState } from "react";
 
 function App() {
-  let guessWord = "ALFABET";
+  let guessWord = "KK";
 
   const [misses, setMisses] = useState(0);
 

@@ -1,4 +1,5 @@
 import Letter from "./Letter";
+import { Result } from "./Result";
 
 const alphabet = [
   "A",
@@ -38,22 +39,34 @@ const alphabet = [
   "Ż",
 ];
 
-export default function Tab({ displayWord, setDisplayWord, guessWord, misses, setMisses }) {
-  return (
-    <div className="Tab">
-      {alphabet.map((letter, index) => (
-        <Letter
-          displayWord={displayWord}
-          guessWord={guessWord}
-          setDisplayWord={setDisplayWord}
-          className="LetterNeutral"
-          key={index}
-          misses={misses}
-          setMisses={setMisses}
-        >
-          {letter}
-        </Letter>
-      ))}
-    </div>
-  );
+export default function Tab({
+  displayWord,
+  setDisplayWord,
+  guessWord,
+  misses,
+  setMisses,
+}) {
+  if (misses >= 9) {
+    return <Result>YOU LOOSE</Result>
+  } else if (!displayWord.includes("-")) {
+    return <Result>YOU WIN</Result>
+  } else {
+    return (
+      <div className="Tab">
+        {alphabet.map((letter, index) => (
+          <Letter
+            displayWord={displayWord}
+            guessWord={guessWord}
+            setDisplayWord={setDisplayWord}
+            className="LetterNeutral"
+            key={index}
+            misses={misses}
+            setMisses={setMisses}
+          >
+            {letter}
+          </Letter>
+        ))}
+      </div>
+    );
+  }
 }

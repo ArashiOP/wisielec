@@ -3,9 +3,8 @@ body {
   display: flex;
   flex: 1;
   justify-content: center;
-  font-family: 'Inconsolata', monospace;
+  font-family: "Inconsolata", monospace;
 }
-
 
 .Tab {
   display: grid;
@@ -31,6 +30,12 @@ body {
   color: white;
 }
 
+.LetterNeutral:hover {
+  background-color: #222222;
+  color: white;
+  border: 3px solid white;
+}
+
 .LetterScore {
   width: 30px;
   height: 30px;
@@ -42,6 +47,7 @@ body {
   border: 3px solid green;
   border-radius: 15px;
   color: green;
+  background-color: #091e0c;
 }
 
 .LetterMiss {
@@ -55,6 +61,15 @@ body {
   border: 3px solid red;
   border-radius: 15px;
   color: red;
+  background-color: #270101;
+}
+
+.Result {
+  width: 350px;
+  height: 280px;
+  color: white;
+  display: grid;
+  place-content: center;
 }
 
 .container {
