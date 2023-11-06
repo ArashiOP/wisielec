@@ -3,6 +3,7 @@ import { Gallows } from "./components/Gallows";
 import Tab from "./components/Tab";
 import { Word } from "./components/Word";
 import { useState } from "react";
+import Categories from "./components/Categories";
 
 function App() {
   let guessWord = "KK";
@@ -18,11 +19,12 @@ function App() {
 
   return (
     <div className="App">
-      <Word
+      <Categories />
+      {/* <Word
         guessWord={guessWord}
         displayWord={displayWord}
         setDisplayWord={setDisplayWord}
-      />
+      /> */}
       <div className="container">
         <Gallows misses={misses} />
         <Tab

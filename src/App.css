@@ -72,6 +72,15 @@ body {
   place-content: center;
 }
 
+.Categories {
+  color: white;
+  display: grid;
+  place-content: center;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-items: center;
+  cursor: pointer;
+}
+
 .container {
   display: flex;
   flex-grow: 1;
