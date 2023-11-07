@@ -47,9 +47,9 @@ export default function Tab({
   setMisses,
 }) {
   if (misses >= 9) {
-    return <Result>YOU LOOSE</Result>
-  } else if (!displayWord.includes("-")) {
-    return <Result>YOU WIN</Result>
+    return <Result>YOU LOOSE</Result>;
+  } else if (displayWord ? !displayWord.includes("-") : false) {
+    return <Result>YOU WIN</Result>;
   } else {
     return (
       <div className="Tab">
