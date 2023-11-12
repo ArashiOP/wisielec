@@ -6,20 +6,45 @@ import { useEffect, useState } from "react";
 import Categories from "./components/Categories";
 
 function App() {
-  const [guessWord, setGuessWord] = useState("");
+  const [guessWord, setGuessWord] = useState(() => {
+    const localValueGuessWord = localStorage.getItem("guessWord");
+    return localValueGuessWord !== null ? JSON.parse(localValueGuessWord) : "";
+  });
 
-  const [misses, setMisses] = useState(0);
+  const [misses, setMisses] = useState(() => {
+    const localValueMisses = localStorage.getItem("misses");
+    return localValueMisses !== null ? JSON.parse(localValueMisses) : 0;
+  });
 
-  const [displayWord, setDisplayWord] = useState();
+  const [displayWord, setDisplayWord] = useState(() => {
+    const localValueDisplayWord = localStorage.getItem("displayWord");
+    return localValueDisplayWord !== null
+      ? JSON.parse(localValueDisplayWord)
+      : null;
+  });
 
   useEffect(() => {
-    setDisplayWord(
-      guessWord
-        .split("")
-        .map((x) => (x === " " ? " " : "-"))
-        .join("")
-    );
+    localStorage.setItem("misses", JSON.stringify(misses));
+  }, [misses]);
+
+  useEffect(() => {
+    localStorage.setItem("guessWord", JSON.stringify(guessWord));
   }, [guessWord]);
+
+  useEffect(() => {
+    localStorage.setItem("displayWord", JSON.stringify(displayWord));
+  }, [displayWord]);
+
+  useEffect(() => {
+    displayWord ||
+      setDisplayWord(
+        guessWord
+          .split("")
+          .map((x) => (x === " " ? " " : "-"))
+          .join("")
+      );
+  }, [guessWord, displayWord]);
+  // localStorage.clear()
 
   return (
     <div className="App">
@@ -40,6 +65,7 @@ function App() {
           setDisplayWord={setDisplayWord}
           misses={misses}
           setMisses={setMisses}
+          setGuessWord={setGuessWord}
         />
       </div>
     </div>

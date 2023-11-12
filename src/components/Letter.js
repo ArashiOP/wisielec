@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Letter({
   children: letter,
@@ -8,9 +8,19 @@ export default function Letter({
   misses,
   setMisses,
 }) {
-  const [letterStatus, setLetterStatus] = useState("LetterNeutral");
+  const uniqueStatus = "letterStatus_" + letter;
+  const [letterStatus, setLetterStatus] = useState(() => {
+    const localValueLetterStatus = localStorage.getItem(uniqueStatus);
+    return localValueLetterStatus !== null
+      ? JSON.parse(localValueLetterStatus)
+      : "LetterNeutral";
+  });
 
-  function handleClick() {
+  useEffect(() => {
+    localStorage.setItem(uniqueStatus, JSON.stringify(letterStatus));
+  }, [letterStatus, uniqueStatus]);
+
+  const handleClick = () => {
     let newWord = displayWord;
     let newMisses = misses;
     for (let i = 0; i < guessWord.length; i++) {
@@ -26,7 +36,7 @@ export default function Letter({
     }
     setDisplayWord(newWord);
     setMisses(newMisses);
-  }
+  };
 
   return (
     <div

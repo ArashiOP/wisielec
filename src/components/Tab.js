@@ -1,43 +1,6 @@
 import Letter from "./Letter";
 import { Result } from "./Result";
-
-const alphabet = [
-  "A",
-  "Ą",
-  "B",
-  "C",
-  "Ć",
-  "D",
-  "E",
-  "Ę",
-  "F",
-  "G",
-  "H",
-  "I",
-  "J",
-  "K",
-  "L",
-  "Ł",
-  "M",
-  "N",
-  "Ń",
-  "O",
-  "Ó",
-  "P",
-  "Q",
-  "R",
-  "S",
-  "Ś",
-  "T",
-  "U",
-  "V",
-  "W",
-  "X",
-  "Y",
-  "Z",
-  "Ź",
-  "Ż",
-];
+import { alphabet } from "../consts/alphabet";
 
 export default function Tab({
   displayWord,
@@ -45,12 +8,31 @@ export default function Tab({
   guessWord,
   misses,
   setMisses,
+  setGuessWord,
 }) {
+  let message;
   if (misses >= 9) {
-    return <Result>YOU LOOSE</Result>;
+    message = "PRZEGRAŁEŚ!";
   } else if (displayWord ? !displayWord.includes("-") : false) {
-    return <Result>YOU WIN</Result>;
+    message = "WYGRAŁEŚ!";
   } else {
+    message = "Wybierz kategorię";
+  }
+
+  if (!displayWord || !displayWord.includes("-") || misses >= 9) {
+    return (
+      <Result setMisses={setMisses} setGuessWord={setGuessWord} setDisplayWord={setDisplayWord}>
+        {message}
+      </Result>
+    );
+  } else {
+    // if (misses >= 9) {
+    //   return <Result setMisses={setMisses}>PRZEGRAŁEŚ!</Result>;
+    // } else if (displayWord ? !displayWord.includes("-") : false) {
+    //   return <Result setMisses={setMisses}>WYGRAŁEŚ!</Result>;
+    // } else if (!displayWord) {
+    //   return <Result >Wybierz kategorię</Result>;
+    // } else {
     return (
       <div className="Tab">
         {alphabet.map((letter, index) => (
