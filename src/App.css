@@ -15,10 +15,14 @@ body {
 .Word {
   color: white;
   cursor: default;
+  display: grid;
+  place-content: center;
+  justify-content: center;
+  justify-items: center;
 }
 
 .Gallows {
-  height: 280px;
+  height: 260px;
 }
 
 .LetterNeutral {
@@ -53,6 +57,7 @@ body {
   border-radius: 15px;
   color: green;
   background-color: #091e0c;
+  transition: 0.3s;
 }
 
 .LetterMiss {
@@ -67,6 +72,7 @@ body {
   border-radius: 15px;
   color: red;
   background-color: #270101;
+  transition: 0.3s;
 }
 
 .Result {
@@ -83,7 +89,7 @@ body {
   color: white;
   display: grid;
   place-content: center;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1.85fr;
   justify-items: center;
   cursor: pointer;
 }
@@ -105,4 +111,63 @@ body {
 .container {
   display: flex;
   flex-grow: 1;
+}
+
+.modal,
+.overlay {
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+}
+
+.overlay {
+  background: rgba(49, 49, 49, 0.8);
+}
+
+.modal-content {
+  display: grid;
+  place-content: center;
+  padding: 15px;
+  border-radius: 15px;
+  border: 3px solid white;
+  justify-items: center;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  line-height: 1.4;
+  background-color: #111111;
+  color: white;
+}
+
+.btn-set {
+  background-color: #222222;
+  color: white;
+  border: 3px solid white;
+  border-radius: 15px;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.btn-close {
+  border: 3px solid red;
+  border-radius: 15px;
+  color: red;
+  background-color: #270101;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.input {
+  color: white;
+  background-color: black;
+  color: white;
+  border: 3px solid white;
+  border-radius: 12px;
+  margin: 5px;
+  font-size: 20px;
 }

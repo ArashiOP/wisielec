@@ -26,13 +26,6 @@ export default function Tab({
       </Result>
     );
   } else {
-    // if (misses >= 9) {
-    //   return <Result setMisses={setMisses}>PRZEGRAŁEŚ!</Result>;
-    // } else if (displayWord ? !displayWord.includes("-") : false) {
-    //   return <Result setMisses={setMisses}>WYGRAŁEŚ!</Result>;
-    // } else if (!displayWord) {
-    //   return <Result >Wybierz kategorię</Result>;
-    // } else {
     return (
       <div className="Tab">
         {alphabet.map((letter, index) => (

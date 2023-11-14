@@ -4,6 +4,7 @@ import Tab from "./components/Tab";
 import { Word } from "./components/Word";
 import { useEffect, useState } from "react";
 import Categories from "./components/Categories";
+import InputWordPopUp from "./components/InputWordPopUp";
 
 function App() {
   const [guessWord, setGuessWord] = useState(() => {
@@ -22,6 +23,8 @@ function App() {
       ? JSON.parse(localValueDisplayWord)
       : null;
   });
+
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     localStorage.setItem("misses", JSON.stringify(misses));
@@ -55,7 +58,7 @@ function App() {
           setDisplayWord={setDisplayWord}
         />
       ) : (
-        <Categories setGuessWord={setGuessWord} />
+        <Categories setIsVisible={setIsVisible} setGuessWord={setGuessWord} />
       )}
       <div className="container">
         <Gallows misses={misses} />
@@ -68,6 +71,11 @@ function App() {
           setGuessWord={setGuessWord}
         />
       </div>
+      <InputWordPopUp
+        isVisible={isVisible}
+        setIsVisible={setIsVisible}
+        setGuessWord={setGuessWord}
+      />
     </div>
   );
 }
