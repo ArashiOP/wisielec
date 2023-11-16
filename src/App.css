@@ -57,7 +57,7 @@ body {
   border-radius: 15px;
   color: green;
   background-color: #091e0c;
-  transition: 0.3s;
+  transition: 0.35s;
 }
 
 .LetterMiss {
@@ -72,7 +72,7 @@ body {
   border-radius: 15px;
   color: red;
   background-color: #270101;
-  transition: 0.3s;
+  transition: 0.35s;
 }
 
 .Result {
