@@ -21,7 +21,11 @@ export default function Tab({
 
   if (!displayWord || !displayWord.includes("-") || misses >= 9) {
     return (
-      <Result setMisses={setMisses} setGuessWord={setGuessWord} setDisplayWord={setDisplayWord}>
+      <Result
+        setMisses={setMisses}
+        setGuessWord={setGuessWord}
+        setDisplayWord={setDisplayWord}
+      >
         {message}
       </Result>
     );

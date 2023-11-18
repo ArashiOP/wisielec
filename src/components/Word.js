@@ -1,8 +1,3 @@
-
-
-export function Word({displayWord, setDisplayWord, guessWord}) {
-
-  return <h1 className="Word">{displayWord}</h1>;
-
-
+export function Word({ displayWord, guessWord, misses }) {
+  return <h1 className="Word">{misses >= 9 ? guessWord : displayWord}</h1>;
 }

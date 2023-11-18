@@ -52,11 +52,7 @@ function App() {
   return (
     <div className="App">
       {guessWord ? (
-        <Word
-          guessWord={guessWord}
-          displayWord={displayWord}
-          setDisplayWord={setDisplayWord}
-        />
+        <Word guessWord={guessWord} displayWord={displayWord} misses={misses} />
       ) : (
         <Categories setIsVisible={setIsVisible} setGuessWord={setGuessWord} />
       )}
