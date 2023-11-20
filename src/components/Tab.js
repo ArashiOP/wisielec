@@ -37,7 +37,7 @@ export default function Tab({
             displayWord={displayWord}
             guessWord={guessWord}
             setDisplayWord={setDisplayWord}
-            className="LetterNeutral"
+            className="letter letter-neutral"
             key={index}
             misses={misses}
             setMisses={setMisses}

@@ -13,7 +13,7 @@ export default function Letter({
     const localValueLetterStatus = localStorage.getItem(uniqueStatus);
     return localValueLetterStatus !== null
       ? JSON.parse(localValueLetterStatus)
-      : "LetterNeutral";
+      : "letter letter-neutral";
   });
 
   useEffect(() => {
@@ -29,10 +29,10 @@ export default function Letter({
       }
     }
     if (newWord === displayWord) {
-      setLetterStatus("LetterMiss");
+      setLetterStatus("letter letter-miss");
       newMisses++;
     } else {
-      setLetterStatus("LetterScore");
+      setLetterStatus("letter letter-score");
     }
     setDisplayWord(newWord);
     setMisses(newMisses);
@@ -40,7 +40,7 @@ export default function Letter({
 
   return (
     <div
-      onClick={letterStatus !== "LetterNeutral" ? null : handleClick}
+      onClick={letterStatus !== "letter letter-neutral" ? null : handleClick}
       className={letterStatus}
     >
       {letter}

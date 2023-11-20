@@ -25,7 +25,7 @@ body {
   height: 260px;
 }
 
-.LetterNeutral {
+.letter {
   width: 30px;
   height: 30px;
   display: flex;
@@ -33,26 +33,16 @@ body {
   align-items: center;
   padding: 5px;
   margin: 5px;
+}
+
+.letter-neutral {
   border: 3px solid white;
   border-radius: 15px;
   cursor: pointer;
   color: white;
 }
 
-.LetterNeutral:hover {
-  background-color: #222222;
-  color: white;
-  border: 3px solid white;
-}
-
-.LetterScore {
-  width: 30px;
-  height: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 5px;
-  margin: 5px;
+.letter-score {
   border: 3px solid green;
   border-radius: 15px;
   color: green;
@@ -60,20 +50,20 @@ body {
   transition: 0.35s;
 }
 
-.LetterMiss {
-  width: 30px;
-  height: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 5px;
-  margin: 5px;
+.letter-miss {
   border: 3px solid red;
   border-radius: 15px;
   color: red;
   background-color: #270101;
   transition: 0.35s;
 }
+
+.letter-neutral:hover {
+  background-color: #222222;
+  color: white;
+  border: 3px solid white;
+}
+
 
 .Result {
   width: 350px;
